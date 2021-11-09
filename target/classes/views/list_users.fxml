@@ -4,84 +4,85 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sapteh.controller.ListUserController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sapteh.controller.ListUsersController">
     <children>
-        <TableView fx:id="userTableView" layoutX="14.0" layoutY="64.0" prefHeight="496.0" prefWidth="400.0"
-                   AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="395.0"
-                   AnchorPane.topAnchor="64.0">
+        <TableView fx:id="userTableView" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="359.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="50.0">
             <columns>
-                <TableColumn fx:id="idColumn" prefWidth="53" text="id"/>
-
-                <TableColumn fx:id="firstNameColumn" prefWidth="123.0" text="First name"/>
-
-                <TableColumn fx:id="lastNameColumn" prefWidth="146.0" text="Last name"/>
-
-                <TableColumn fx:id="ageColumn" prefWidth="93.0" text="Age"/>
+                <TableColumn fx:id="idColumn" prefWidth="53.0" text="Id" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="123.0" text="First name" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="146.0" text="Last name" />
+                <TableColumn fx:id="ageColumn" prefWidth="55.0" text="Age" />
             </columns>
         </TableView>
-
-        <Separator layoutX="410.0" layoutY="5.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="8.0"/>
+        <TextField fx:id="searchTxt" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="185.0" />
+        <Button fx:id="searchButton" layoutX="213.0" layoutY="14.0" mnemonicParsing="false" text="Найти" />
+        <Label layoutX="20.0" layoutY="369.0" text="Количество" />
+        <Label fx:id="countLbl" layoutX="93.0" layoutY="369.0" text="Label" />
+        <Separator layoutX="410.0" layoutY="5.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="8.0" />
         <Label layoutX="566.0" layoutY="13.0" text="User info">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
         <Label layoutX="431.0" layoutY="73.0" text="id">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="431.0" layoutY="127.0" text="First name">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
+
         <Label fx:id="labelId" layoutX="533.0" layoutY="73">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="431.0" layoutY="127.0" text="First name">
+            <font>
+                <Font size="18.0" />
             </font>
         </Label>
         <TextField fx:id="textFieldFirstName" layoutX="528.0" layoutY="121.0">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </TextField>
 
         <Label layoutX="431.0" layoutY="170" text="Last name">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
         <TextField fx:id="textFieldLastName" layoutX="528.0" layoutY="170">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </TextField>
         <Label layoutX="431.0" layoutY="220" text="Age">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
         <TextField fx:id="textFieldAge" layoutX="528.0" layoutY="220">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </TextField>
-        <Button layoutX="447.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonSave" text="Добавить">
+
+        <Button layoutX="447.0" layoutY="348.0" mnemonicParsing="false" text="Добавить" onAction="#saveUserButton">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Button>
-        <Button layoutX="574.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonDelete" text="Удалить">
+        <Button layoutX="574.0" layoutY="348.0" mnemonicParsing="false" text="Удалить" onAction="#deleteUserButton">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Button>
-        <Button layoutX="687.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonUpdate" text="Обновить">
+        <Button layoutX="687.0" layoutY="348.0" mnemonicParsing="false" text="Обновить" onAction="#updateUserButton">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Button>
+
     </children>
 </AnchorPane>

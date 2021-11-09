@@ -6,27 +6,42 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sapteh.controller.MainController">
    <children>
-      <Label graphicTextGap="18.0" layoutX="52.0" layoutY="53.0" text="first name">
+      <TextField fx:id="loginTxt" layoutX="218.0" layoutY="93.0">
          <font>
             <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="52.0" layoutY="113.0" text="last name">
+         </font>
+      </TextField>
+      <TextField fx:id="passwordTxt" layoutX="218.0" layoutY="155.0">
          <font>
             <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="52.0" layoutY="177.0" text="age">
+         </font>
+      </TextField>
+
+      <Label layoutX="90.0" layoutY="99.0" text="Login">
          <font>
             <Font size="18.0" />
-         </font></Label>
-      <TextField fx:id="firstNameText" layoutX="192.0" layoutY="49.0" />
-      <TextField fx:id="lastNameText" layoutX="192.0" layoutY="109.0" />
-      <TextField fx:id="ageText" layoutX="192.0" layoutY="173.0" />
-      <Button layoutX="472.0" layoutY="302.0" mnemonicParsing="false" onAction="#addedButton" text="Add" />
-      <Button layoutX="263" layoutY="318" mnemonicParsing="false" onAction="#inputButton" text="Войти"/>
-      <Button layoutX="40.0" layoutY="302.0" mnemonicParsing="false" onAction="#exitButton" text="Esc" />
-      <Label fx:id="alertText" layoutX="279.0" layoutY="245.0">
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="161.0" text="Password">
          <font>
             <Font size="18.0" />
+         </font>
+      </Label>
+
+      <Button layoutX="450.0" layoutY="318.0" mnemonicParsing="false" onAction="#inputButton" text="Войти">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="75.0" layoutY="318.0" mnemonicParsing="false" onAction="#exitButton" text="Выход">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+
+      <Label fx:id="alertText" layoutX="100" layoutY="200" textAlignment="CENTER">
+         <font>
+            <Font size="18" />
          </font>
       </Label>
    </children>

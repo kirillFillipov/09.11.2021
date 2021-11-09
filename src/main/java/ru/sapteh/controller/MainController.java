@@ -12,80 +12,64 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.sapteh.model.User;
-import ru.sapteh.service.UserService;
+import ru.sapteh.model.Admin;
+import ru.sapteh.service.AdminService;
+
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class MainController {
 
-    private final UserService userService;
-
+    private final AdminService adminService;
     public MainController() {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        this.userService = new UserService(factory);
+        this.adminService = new AdminService(factory);
     }
 
     @FXML
-    private Button inputButton;
-
-    @FXML
-    private TextField firstNameText;
-
-    @FXML
-    private TextField lastNameText;
-
-    @FXML
-    private TextField ageText;
-
-    @FXML
     private Label alertText;
+
+    @FXML
+    private TextField loginTxt;
+
+    @FXML
+    private TextField passwordTxt;
 
     @FXML
     public void initialize() {
 
     }
 
-    public void addedButton(ActionEvent actionEvent) {
-        boolean isAdd = userService.save(new User(
-                firstNameText.getText(),
-                lastNameText.getText(),
-                Integer.parseInt(ageText.getText())
-        ));
-       if (isAdd){
-           alertText.setTextFill(Color.GREEN);
-           alertText.setText("Вы успешно добавили пользователя");
-       }
-       else {
-           alertText.setText("Пользователь не добавлен");
-       }
-       firstNameText.clear();
-       lastNameText.clear();
-       ageText.clear();
+    @FXML
+    private void inputButton(ActionEvent actionEvent) {
+        Admin admin = new Admin(loginTxt.getText(), passwordTxt.getText());
+        final boolean isExists = adminService.findAll().stream().anyMatch(admin::equals);
 
+        if (isExists) {
+            ((Button) actionEvent.getSource()) .getScene().getWindow().hide();
+            openWindow();
+        } else {
+            alertText.setTextFill(Color.RED);
+            alertText.setText("Логин или пароль не соответствует");
+        }
     }
 
-    public void exitButton(ActionEvent actionEvent) {
+    @FXML
+    private void exitButton(ActionEvent actionEvent) {
         final Button source = (Button) actionEvent.getSource();
         source.getScene().getWindow().hide();
     }
 
-    public void inputButton(ActionEvent actionEvent){
-        Button input =(Button) actionEvent.getSource();
-        input.getScene().getWindow().hide();
-        Stage stage = new Stage();
-        Parent root = null;
+    private void openWindow() {
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/list_users.fxml")));
-        }
-        catch (IOException e){
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/list_users.fxml")));
+            Stage stage = new Stage();
+            stage.setTitle("List users");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        stage.setTitle("List users");
-        assert root != null;
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }
-

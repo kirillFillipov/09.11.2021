@@ -6,8 +6,8 @@ import org.hibernate.Transaction;
 import ru.sapteh.dao.Dao;
 import ru.sapteh.model.User;
 
-import javax.persistence.Id;
 import java.util.List;
+
 
 public class UserDaoImpl implements Dao<User, Integer> {
 
@@ -19,14 +19,14 @@ public class UserDaoImpl implements Dao<User, Integer> {
 
     @Override
     public User findById(Integer id) {
-        try (Session session = factory.openSession()) {
+        try(Session session = factory.openSession()) {
             return session.get(User.class, id);
         }
     }
 
     @Override
     public List<User> findAll() {
-        try (Session session = factory.openSession()) {
+        try(Session session = factory.openSession()) {
             return session.createQuery("from User", User.class).list();
         }
     }
@@ -34,7 +34,7 @@ public class UserDaoImpl implements Dao<User, Integer> {
     @Override
     public boolean save(User user) {
         if (user == null) return false;
-        try (Session session = factory.openSession()) {
+        try(Session session = factory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             session.save(user);
             transaction.commit();
@@ -45,7 +45,7 @@ public class UserDaoImpl implements Dao<User, Integer> {
     @Override
     public boolean update(User user) {
         if (user == null) return false;
-        try (Session session = factory.openSession()) {
+        try(Session session = factory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             session.update(user);
             transaction.commit();
@@ -56,7 +56,7 @@ public class UserDaoImpl implements Dao<User, Integer> {
     @Override
     public boolean delete(User user) {
         if (user == null) return false;
-        try (Session session = factory.openSession()) {
+        try(Session session = factory.openSession()) {
             final Transaction transaction = session.beginTransaction();
             session.delete(user);
             transaction.commit();

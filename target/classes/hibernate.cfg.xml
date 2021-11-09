@@ -21,6 +21,7 @@
 
         <!--mapping-->
         <mapping class="ru.sapteh.model.User"/>
+        <mapping class="ru.sapteh.model.Admin"/>
 
     </session-factory>
 </hibernate-configuration>

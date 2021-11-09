@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class Main extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public  void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/views/main.fxml")));
         stage.setTitle("Main window");
         stage.setScene(new Scene(root));
